@@ -10,6 +10,6 @@ const { chromium } = require("playwright");
 
   const text = await page.innerText(".localized-slogan");
   assert(text === "The Free Encyclopedia");
-  await browser.close();
+  // await browser.close();
 })();
 
