@@ -3,7 +3,7 @@ const { chromium } = require("playwright");
 
 (async () => {
   let browser, page;
-  browser = await chromium.launch({ headless: false });
+  browser = await chromium.launch();
 
   page = await browser.newPage();
   await page.goto("https://www.wikipedia.org/");
