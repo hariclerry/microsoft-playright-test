@@ -1,4 +1,7 @@
 const { chromium } = require("playwright");
+const path = require( 'path' )
+
+const LOGPATH = process.env.LOG_DIR || path.resolve(__dirname, "..", "log");
 
 describe("Wikipedia Home Page", () => {
   let response, browser, page;
@@ -9,12 +12,14 @@ describe("Wikipedia Home Page", () => {
     response = await page.goto("https://www.wikipedia.org/");
   });
 
+  beforeEach(async () => {
+    	await page.screenshot({
+        path: `${LOGPATH}/screenshot.png`,
+      });
+  })
+
   afterAll(async () => {
     await browser.close();
-  });
-
-  it("test if page loads successfully", async () => {
-    expect(response.status()).toBe(200);
   });
 
   it("should check if page sub title is correct", async () => {

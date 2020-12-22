@@ -55,3 +55,4 @@ database/
 
 # Jetbrains IDEA settings
 .idea/
+/src/log
